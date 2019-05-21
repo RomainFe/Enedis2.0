@@ -1,0 +1,13 @@
+{
+  "name": "LinkyService",
+  "version": "0.1.0",
+  "description": "Gladys hooks for sending MQTT request to device.",
+  "main": "LinkyService.js",
+  "author": "Gharib Damiche",
+  "license": "CC-BY-NC-SA-3.0",
+  "dependencies": {
+    "@bokub/linky": "^0.2.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
