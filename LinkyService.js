@@ -16,7 +16,7 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 
 async function myfunction() {
-	session = await linky.login('pierredenarie@gmail.com', 'rk6c%Mmf'); 																															// connection a l'espace client et récuperation d'une session pour récupérer les données de consommation
+	session = await linky.login('ID', 'MDP'); 																															// connection a l'espace client et récuperation d'une session pour récupérer les données de consommation
   conso  = await session.getHourlyData();																																														// Création de la session pour récuperer la consommation
 	consoDay  = await session.getDailyData();																																													// Création de la session pour récuperer de la consommation de l'habitation au jour
 	//consoMonth  = await session.getMonthlyData();																																										// Création de la session pour récuperer de la consommation de l'habitation au mois
