@@ -16,7 +16,7 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 
 async function myfunction() {
-	session = await linky.login('ID', 'MDP'); 																															// connection a l'espace client et récuperation d'une session pour récupérer les données de consommation
+	session = await linky.login('pierredenarie@gmail.com', 'rk6c%Mmf'); 																															// connection a l'espace client et récuperation d'une session pour récupérer les données de consommation
   conso  = await session.getHourlyData();																																														// Création de la session pour récuperer la consommation
 	consoDay  = await session.getDailyData();																																													// Création de la session pour récuperer de la consommation de l'habitation au jour
 	//consoMonth  = await session.getMonthlyData();																																										// Création de la session pour récuperer de la consommation de l'habitation au mois
@@ -33,7 +33,7 @@ function intervalFuncHour() {
 		await start();
 		console.log(conso[47].value);
 		request('http://'+hostname+'/devicestate/create/?token='+token+'&devicetype=4&value='+conso[i].value, { json: true } )					//Requête de récuperation de la consommation de l'habitation à lheure
-		.then(function(value){																																																					//Promise : à chaque requ^ete on incrémenta la valeur i pour récupérer la valeur suivante
+		.then(function(value){																																																					//Promise : à chaque requête on incrémente la valeur i pour récupérer la valeur suivante
 			i++;
 				if(47 == i ){
 					(async() => { await start(); })();
@@ -64,6 +64,6 @@ function intervalFuncDay() {
 //};
 
 setInterval(intervalFuncHour,1800000);																																															// Intervalle de Lancement des requêtes pour la consommation a l'heure
-setInterval(intervalFuncHour,86400000);																																															// Intervalle de Lancement des requêtes pour la consommation au jour
-//setInterval(intervalFuncHour,2592000000);																																													// Intervalle de Lancement des requêtes pour la consommation au mois
-//setInterval(intervalFuncHour,31536000000);																																												// Intervalle de Lancement des requêtes pour la consommation a l'année
+setInterval(intervalFuncDay,86400000);																																															// Intervalle de Lancement des requêtes pour la consommation au jour
+//setInterval(intervalFuncMonth,2592000000);																																													// Intervalle de Lancement des requêtes pour la consommation au mois
+//setInterval(intervalFuncYear,31536000000);																																												// Intervalle de Lancement des requêtes pour la consommation a l'année
